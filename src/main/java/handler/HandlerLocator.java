@@ -6,12 +6,14 @@ import request.RequestType;
 
 public class HandlerLocator {
     public static Handler getHandler(RequestType type) {
-
         switch (type) {
-            case CREATE: return new CreateHandler();
-            case DELETE: return new DeleteHandler();
+            case CREATE:
+                return new CreateHandler();
+            case DELETE:
+                return new DeleteHandler();
+            case UPDATE:
+                return new UpdateHandler();
         }
-        return new UpdateHandler();
+        return null;
     }
-
 }
