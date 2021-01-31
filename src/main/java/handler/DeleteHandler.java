@@ -5,6 +5,7 @@ public class DeleteHandler implements Handler {
     @Override
     public void handle(Request request) {
         String payload = request.getPayload();
+        System.out.println("deleteRequest payload: " + payload);
 
         int count = 0;
         count++;
