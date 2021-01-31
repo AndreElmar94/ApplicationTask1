@@ -1,11 +1,8 @@
-import handler.CreateHandler;
-import handler.DeleteHandler;
-import handler.Handler;
-import handler.UpdateHandler;
+package handler;
 import request.RequestType;
 
 public class HandlerLocator {
-    public static Handler getHandler(RequestType type) {
+    public Handler getHandler(RequestType type) {
         switch (type) {
             case CREATE:
                 return new CreateHandler();
@@ -16,4 +13,5 @@ public class HandlerLocator {
         }
         return null;
     }
+
 }
