@@ -1,4 +1,5 @@
 import handler.Handler;
+import handler.HandlerLocator;
 import request.Request;
 import request.RequestType;
 import java.util.List;
@@ -13,7 +14,8 @@ public class Runner {
         List<Request> requests = List.of(deleteRequest, updateRequest, createRequest);
 
         for (Request request : requests) {
-            Handler suitableHandler = HandlerLocator.getHandler(request.getType());
+            HandlerLocator handlerLocator = new HandlerLocator();
+            Handler suitableHandler = handlerLocator.getHandler(request.getType());
             suitableHandler.handle(request);
         }
     }
