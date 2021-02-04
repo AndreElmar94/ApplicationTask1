@@ -2,6 +2,7 @@ package handler;
 import request.RequestType;
 
 public class HandlerLocator {
+
     public Handler getHandler(RequestType type) {
         switch (type) {
             case CREATE:
@@ -11,7 +12,6 @@ public class HandlerLocator {
             case UPDATE:
                 return new UpdateHandler();
         }
-        return null;
+        return getHandler(type);
     }
-
 }
