@@ -1,11 +1,13 @@
 package handler;
+
 import request.Request;
+
 public class DeleteHandler implements Handler {
 
     @Override
-    public void handle(Request request) {
+    public String handle(Request request) {
         String payload = request.getPayload();
-        System.out.println("deleteRequest payload: " + payload);
+        System.out.println("\n deleteRequest payload: " + payload);
 
         int count = 0;
         count++;
@@ -23,7 +25,10 @@ public class DeleteHandler implements Handler {
                 count++;
             }
         }
-        System.out.println("result of deleteRequest`s handling (посчитать колисество слов в payload): " + payload + " = " + count);
-        System.out.println();
+        String result = Integer.toString(count);
+        System.out.print("result of deleteRequest`s handling (посчитать колисество слов в payload): " + payload + " = ");
+        System.out.println(result);
+
+        return result;
     }
 }

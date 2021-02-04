@@ -5,11 +5,12 @@ import request.Request;
 public class CreateHandler implements Handler {
 
     @Override
-    public void handle(Request request) {
+    public String handle(Request request) {
         String payload = request.getPayload();
-        System.out.println("createRequest payload: " + payload);
+        System.out.println("\n createRequest payload: " + payload);
         String result = new StringBuffer(payload).reverse().toString();
-        System.out.println("result of createRequest's handling (отобразить payload справа налево) : " + result);
-        System.out.println();
+        System.out.print("result of createRequest's handling (отобразить payload справа налево) : ");
+        System.out.print(result);
+        return result;
     }
 }

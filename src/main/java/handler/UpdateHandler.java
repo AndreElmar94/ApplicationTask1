@@ -7,12 +7,14 @@ import java.util.regex.Pattern;
 public class UpdateHandler implements Handler {
 
     @Override
-    public void handle(Request request) {
+    public String handle(Request request) {
         String payload = request.getPayload();
-        System.out.println("updateRequest payload: " + payload);
+        System.out.println("\n updateRequest payload: " + payload);
         Pattern pattern = Pattern.compile("(((\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}(\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5]))$"); // [0-9] -> \\d
         Matcher matcher = pattern.matcher(payload);
-        System.out.println("result of updateRequest`s handling (проверить, я вляется ли payload валидным ip adress): " + matcher.find());
-        System.out.println();
+        String result = String.valueOf(matcher.find());
+        System.out.print("result of updateRequest`s handling (проверить, я вляется ли payload валидным ip adress): ");
+        System.out.println(result);
+        return result;
     }
 }
