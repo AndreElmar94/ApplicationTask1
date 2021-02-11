@@ -7,7 +7,6 @@ import request.Request;
 import request.RequestType;
 
 public class CreateHandlerTest {
-
     private CreateHandler createHandler;
 
     @BeforeEach
@@ -23,7 +22,7 @@ public class CreateHandlerTest {
         String actual = createHandler.handle(request);
 
         Assertions.assertNotNull(actual);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
 }
