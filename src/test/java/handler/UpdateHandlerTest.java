@@ -7,7 +7,6 @@ import request.Request;
 import request.RequestType;
 
 public class UpdateHandlerTest {
-
     private UpdateHandler updateHandler;
 
     @BeforeEach
