@@ -23,13 +23,13 @@ public class RunnerTest {
 
     @Test
     public void testHandlerListRequests() {
-            Handler suitableHandlerDelete = handlerLocator.getHandler(deleteRequest.getType());
-            Handler suitableHandlerUpdate = handlerLocator.getHandler(updateRequest.getType());
-            Handler suitableHandlerCreate = handlerLocator.getHandler(createRequest.getType());
+        Handler suitableHandlerDelete = handlerLocator.getHandler(deleteRequest.getType());
+        Handler suitableHandlerUpdate = handlerLocator.getHandler(updateRequest.getType());
+        Handler suitableHandlerCreate = handlerLocator.getHandler(createRequest.getType());
 
-            String actualDelete = suitableHandlerDelete.handle(deleteRequest);
-            String actualUpdate = suitableHandlerUpdate.handle(updateRequest);
-            String actualCreate = suitableHandlerCreate.handle(createRequest);
+        String actualDelete = suitableHandlerDelete.handle(deleteRequest);
+        String actualUpdate = suitableHandlerUpdate.handle(updateRequest);
+        String actualCreate = suitableHandlerCreate.handle(createRequest);
 
         String expectedDelete = "2";
         String expectedUpdate = String.valueOf(true);
@@ -38,8 +38,8 @@ public class RunnerTest {
         Assertions.assertNotNull(deleteRequest);
         Assertions.assertNotNull(updateRequest);
         Assertions.assertNotNull(createRequest);
-        Assertions.assertEquals(actualDelete,expectedDelete);
-        Assertions.assertEquals(actualUpdate,expectedUpdate);
-        Assertions.assertEquals(actualCreate,expectedCreate);
+        Assertions.assertEquals(actualDelete, expectedDelete);
+        Assertions.assertEquals(actualUpdate, expectedUpdate);
+        Assertions.assertEquals(actualCreate, expectedCreate);
     }
 }
