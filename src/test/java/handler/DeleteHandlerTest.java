@@ -7,7 +7,6 @@ import request.Request;
 import request.RequestType;
 
 public class DeleteHandlerTest {
-
     private DeleteHandler deleteHandler;
 
     @BeforeEach
