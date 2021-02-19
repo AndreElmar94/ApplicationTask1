@@ -24,5 +24,4 @@ public class CreateHandlerTest {
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(expected, actual);
     }
-
 }
