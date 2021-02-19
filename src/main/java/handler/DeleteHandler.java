@@ -7,7 +7,6 @@ public class DeleteHandler implements Handler {
     @Override
     public String handle(Request request) {
         String payload = request.getPayload();
-        System.out.println("\n deleteRequest payload: " + payload);
 
         int count = 0;
         count++;
@@ -26,8 +25,6 @@ public class DeleteHandler implements Handler {
             }
         }
         String result = Integer.toString(count);
-        System.out.print("result of deleteRequest`s handling (посчитать колисество слов в payload): " + payload + " = ");
-        System.out.println(result);
 
         return result;
     }
