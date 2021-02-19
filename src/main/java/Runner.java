@@ -58,10 +58,11 @@ public class Runner {
         requests = List.of(deleteRequest, updateRequest, createRequest);
 
         for (Request request : requests) {
+            System.out.println(" payload: " + request.getPayload());
             HandlerLocator handlerLocator = new HandlerLocator();
             Handler suitableHandler = handlerLocator.getHandler(request.getType());
-            suitableHandler.handle(request);
+//            suitableHandler.handle(request);
+            System.out.println("result : " + suitableHandler.handle(request));
         }
-
     }
 }
