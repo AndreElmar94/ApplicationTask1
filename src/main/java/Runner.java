@@ -7,14 +7,16 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class Runner {
     public static void main(String[] args) {
 
-        File fileForPayloadDelete = new File("text/deleteRequest.txt");
-        File fileForPayloadUpdate = new File("text/updateRequest.txt");
-        File fileForPayloadCreate = new File("text/createRequest.txt");
+        File fileForPayloadDelete = new File("src/main/resources/text/deleteRequest.txt");
+        File fileForPayloadUpdate = new File("src/main/resources/text/updateRequest.txt");
+        File fileForPayloadCreate = new File("src/main/resources/text/createRequest.txt");
         FileReader fileReader;
         BufferedReader bf;
         List<Request> requests;
@@ -22,46 +24,32 @@ public class Runner {
         Request updateRequest = null;
         Request createRequest = null;
 
-        try {
-            fileReader = new FileReader(fileForPayloadDelete);
-            bf = new BufferedReader(fileReader);
-            String line = null;
-            while ((line = bf.readLine()) != null) {
-                deleteRequest = new Request(line, RequestType.DELETE);
+        List<File> files = List.of(fileForPayloadDelete, fileForPayloadUpdate, fileForPayloadCreate);
+        for (File file : files) {
+            try {
+                fileReader = new FileReader(file);
+                bf = new BufferedReader(fileReader);
+                String line;
+                while ((line = bf.readLine()) != null) {
+                    if (file.equals(fileForPayloadDelete)) {
+                        deleteRequest = new Request(line, RequestType.DELETE);
+                    }
+                    if (file.equals(fileForPayloadUpdate)) {
+                        updateRequest = new Request(line, RequestType.UPDATE);
+                    } else {
+                        createRequest = new Request(line, RequestType.CREATE);
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
-        try {
-            fileReader = new FileReader(fileForPayloadUpdate);
-            bf = new BufferedReader(fileReader);
-            String line = null;
-            while ((line = bf.readLine()) != null) {
-                updateRequest = new Request(line, RequestType.UPDATE);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            fileReader = new FileReader(fileForPayloadCreate);
-            bf = new BufferedReader(fileReader);
-            String line = null;
-            while ((line = bf.readLine()) != null) {
-                createRequest = new Request(line, RequestType.CREATE);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         requests = List.of(deleteRequest, updateRequest, createRequest);
+        HandlerLocator handlerLocator = new HandlerLocator();
 
         for (Request request : requests) {
-            System.out.println(" payload: " + request.getPayload());
-            HandlerLocator handlerLocator = new HandlerLocator();
             Handler suitableHandler = handlerLocator.getHandler(request.getType());
-//            suitableHandler.handle(request);
+            suitableHandler.payloadBeforeHandler(request);
             System.out.println("result : " + suitableHandler.handle(request));
         }
     }
