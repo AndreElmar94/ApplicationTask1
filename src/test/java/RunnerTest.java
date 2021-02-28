@@ -16,8 +16,8 @@ public class RunnerTest {
     @BeforeEach
     public void initialRunnerTest() {
         handlerLocator = new HandlerLocator();
-        deleteRequest = new Request("Hello world", RequestType.DELETE);
-        updateRequest = new Request("128.110.102.112", RequestType.UPDATE);
+        deleteRequest = new Request("Java is the best programming language", RequestType.DELETE);
+        updateRequest = new Request("45654.asifjsd.cfg.0568", RequestType.UPDATE);
         createRequest = new Request("Hello world", RequestType.CREATE);
     }
 
@@ -31,8 +31,8 @@ public class RunnerTest {
         String actualUpdate = suitableHandlerUpdate.handle(updateRequest);
         String actualCreate = suitableHandlerCreate.handle(createRequest);
 
-        String expectedDelete = "2";
-        String expectedUpdate = String.valueOf(true);
+        String expectedDelete = "6";
+        String expectedUpdate = String.valueOf(false);
         String expectedCreate = "dlrow olleH";
 
         Assertions.assertNotNull(deleteRequest);
