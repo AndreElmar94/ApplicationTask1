@@ -21,7 +21,6 @@ public class CreateHandlerTest {
 
         String actual = createHandler.handle(request);
 
-        Assertions.assertNotNull(actual);
         Assertions.assertEquals(expected, actual);
     }
 }
