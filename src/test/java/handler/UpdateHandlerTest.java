@@ -15,12 +15,11 @@ public class UpdateHandlerTest {
     }
 
     @Test
-    public void chekIpAddresses() {
+    public void checkIpAddresses() {
         Request request = new Request("128.210.23.244", RequestType.UPDATE);
 
         String actual = updateHandler.handle(request);
 
         Assertions.assertTrue(true, actual);
-        Assertions.assertNotNull(actual);
     }
 }
