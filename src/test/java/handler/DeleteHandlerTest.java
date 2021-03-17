@@ -22,6 +22,5 @@ public class DeleteHandlerTest {
         String actual = deleteHandler.handle(request);
 
         Assertions.assertEquals(expected, actual);
-        Assertions.assertNotNull(actual);
     }
 }
