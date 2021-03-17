@@ -1,15 +1,10 @@
 package handler;
-import request.Request;
 
+import request.Request;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UpdateHandler implements Handler {
-
-    @Override
-    public void payloadBeforeHandler(Request request) {
-        System.out.println(" payload: " + request.getPayload());
-    }
 
     @Override
     public String handle(Request request) {
