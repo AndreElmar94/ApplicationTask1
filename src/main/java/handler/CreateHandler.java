@@ -2,7 +2,7 @@ package handler;
 
 import request.Request;
 
-public class CreateHandler implements Handler {
+public class CreateHandler extends Handler {
 
     @Override
     public String handle(Request request) {

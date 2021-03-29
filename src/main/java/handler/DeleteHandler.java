@@ -2,7 +2,7 @@ package handler;
 
 import request.Request;
 
-public class DeleteHandler implements Handler {
+public class DeleteHandler extends Handler {
 
     @Override
     public String handle(Request request) {

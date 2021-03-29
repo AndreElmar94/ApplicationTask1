@@ -4,7 +4,7 @@ import request.Request;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UpdateHandler implements Handler {
+public class UpdateHandler extends Handler {
 
     @Override
     public String handle(Request request) {
