@@ -22,5 +22,7 @@ public class HandlerLocatorTest {
         Assertions.assertEquals(new DeleteHandler(), actualDelete);
         Assertions.assertEquals(new UpdateHandler(), actualUpdate);
         Assertions.assertEquals(new CreateHandler(), actualCreate);
+        
+        //одбавить тип какой-то левый, если на вход поступит, то надо иключеник выкинуть!
     }
 }
